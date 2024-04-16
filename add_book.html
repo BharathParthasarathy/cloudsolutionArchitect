@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Book</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .container {
+      text-align: center; /* Align content in the center horizontally */
+    }
+
+    /* Style for labels */
+    label {
+      display: inline-block; /* Make labels behave as blocks */
+      width: 100px; /* Adjust the width as needed */
+      text-align: right; /* Align text to the right */
+      margin-right: 10px; /* Add some margin to the right of labels */
+    }
+
+    .back-button {
+      display: inline-block; /* Make the button inline block */
+      margin-top: 20px; /* Adjust top margin as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Book</h1>
+    <form id="addBookForm">
+      <label for="id">ID:</label>
+      <input type="number" id="id" required><br><br>
+
+      <label for="Authors">Authors:</label>
+      <input type="text" id="Authors" required><br><br>
+
+      <label for="Publisher">Publisher:</label>
+      <input type="text" id="Publisher" required><br><br>
+
+      <label for="Title">Title:</label>
+      <input type="text" id="Title" required><br><br>
+
+      <label for="Year">Year:</label>
+      <input type="number" id="Year" required><br><br>
+
+      <!-- Additional fields can be added as needed -->
+      <button type="submit">Save</button>
+      <br><br> 
+    </form>
+    <a href="home.html" class="back-button">Back</a>
+    <br>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

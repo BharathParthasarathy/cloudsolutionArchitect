@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+          background-color: #f0f0f0; /* Set background color */
+          font-family: Arial, sans-serif; /* Use a common font */
+      }
+  
+      .container {
+          text-align: center; /* Align content in the center horizontally */
+          margin-top: 50px; /* Add some top margin for space */
+      }
+  
+      /* Style for labels */
+      label {
+          display: inline-block; /* Display labels as inline-block elements */
+          width: 120px; /* Adjust the width as needed */
+          text-align: right; /* Align text to the right */
+          margin-bottom: 5px; /* Add some bottom margin to labels */
+          color: #333; /* Set label color */
+      }
+  
+      input[type="text"] {
+          width: 200px; /* Adjust the width as needed */
+          padding: 5px; /* Add some padding to inputs */
+          margin-bottom: 10px; /* Add some bottom margin to inputs */
+          border: 1px solid #ccc; /* Add a border */
+          border-radius: 3px; /* Add border radius */
+      }
+  
+      .back-button {
+          display: inline-block; /* Make the button inline block */
+          margin-top: 20px; /* Adjust top margin as needed */
+          text-decoration: none; /* Remove default underline */
+          color: #007bff; /* Set button color */
+      }
+  
+      button[type="submit"] {
+          width: 150px; /* Set button width */
+          padding: 8px 12px; /* Add padding to button */
+          background-color: #007bff; /* Set button background color */
+          color: #fff; /* Set button text color */
+          border: none; /* Remove border */
+          border-radius: 3px; /* Add border radius */
+          cursor: pointer; /* Add cursor pointer */
+      }
+  
+      button[type="submit"]:hover {
+          background-color: #0056b3; /* Change background color on hover */
+      }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Book</h1>
+        <form id="editForm">
+            <!-- Hidden input field for ID -->
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" readonly><br>
+            <label for="Title">Title:</label>
+            <input type="text" id="Title" name="Title"><br>
+            <label for="Publisher">Publisher:</label>
+            <input type="text" id="Publisher" name="Publisher"><br>
+            <label for="Authors">Authors:</label>
+            <input type="text" id="Authors" name="Authors"><br>
+            <label for="Year">Year:</label>
+            <input type="text" id="Year" name="Year"><br>
+            <!-- Save Changes button -->
+            <button type="submit" id="saveChangesButton">Save Changes</button>
+        </form>
+        <!-- Back button -->
+        <a href="home.html" class="back-button">Back</a>
+    </div>
+    <br>
+    <script>
+      // Function to retrieve URL parameters
+      function getUrlParams() {
+          const params = {};
+          window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+              params[key] = decodeURIComponent(value);
+          });
+          return params;
+      }
+
+      // Retrieve URL parameters
+      const params = getUrlParams();
+
+      // Populate input fields with the retrieved values
+      document.getElementById('id').value = params.id || '';
+      document.getElementById('Title').value = params.Title || '';
+      document.getElementById('Publisher').value = params.Publisher || '';
+      document.getElementById('Authors').value = params.Authors || '';
+      document.getElementById('Year').value = params.Year || '';
+      // Remove data values from the URL
+      const urlWithoutParams = window.location.pathname;
+      history.replaceState({}, '', urlWithoutParams);
+
+      // Add event listener to form submission
+      document.getElementById('editForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Call function to perform PUT method
+            saveChanges();
+        });
+
+        // Function to perform PUT method
+        async function saveChanges() {
+            // Retrieve values from form inputs
+            const id = document.getElementById('id').value;
+            const Title = document.getElementById('Title').value;
+            const Publisher = document.getElementById('Publisher').value;
+            const Authors = document.getElementById('Authors').value;
+            const Year = document.getElementById('Year').value;
+
+            // Construct payload
+            const payload = {
+                id: id,
+                Title: Title,
+                Publisher: Publisher,
+                Authors: Authors,
+                Year: Year
+            };
+
+            try {
+                // Send PUT request
+                const response = await fetch('https://bfcvc1fh56.execute-api.us-east-1.amazonaws.com/newrestapistage/put-item', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Check if request was successful
+                if (response.ok) {
+                    alert('Changes saved successfully.');
+                    window.location.href = 'home.html';
+                } else {
+                    alert('Failed to save changes.');
+                }
+            } catch (error) {
+                console.error('Error saving changes:', error);
+                alert('Failed to save changes. Please try again.');
+            }
+        }
+
+  </script>
+    <script src="script.js"></script>
+</body>
+</html>

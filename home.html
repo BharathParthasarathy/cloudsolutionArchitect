@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    .signout-button {
+      padding: 10px 20px;
+      background-color: #dc3545; /* Red color */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none; /* Remove default underline */
+      cursor: pointer;
+      position: absolute;
+      top: 20px; /* Adjust top position */
+      right: 20px; /* Adjust right position */
+    }
+
+    /* Style for Sign Out button on hover */
+    .sign-out-button:hover {
+      background-color: #c82333; /* Darker shade of red */
+    }
+    /* Style for Add Book button */
+    .add-book-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none; /* Remove default underline */
+      cursor: pointer;
+      
+    }
+
+    /* Style for Add Book button on hover */
+    .add-book-button:hover {
+      background-color: #0056b3; /* Darker shade of blue */
+    }
+
+    /* Container for Add Book button */
+    #addBookButtonContainer {
+      margin-bottom: 20px; /* Add some space below the button */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Signout button -->
+    <button class="signout-button" onclick="signOut()">Sign Out</button>
+    <h1>Welcome to the Bookstore</h1>
+    <!-- Add Book Button -->
+    <div id="addBookButtonContainer">
+        <a href="add_book.html" class="add-book-button">Add Book</a>
+    </div>
+    <br>
+    <!-- Book Tiles Container -->
+    <div id="bookContainer" class="book-container"></div> <!-- Added container for book tiles -->
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Function to handle signout
+    function signOut() {
+      sessionStorage.clear();
+      document.cookie = ""; // This will clear all cookies
+      window.location.href = "logout.html"; 
+
+    }
+  </script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.977.0.min.js"></script>
+
+</body>
+</html>
