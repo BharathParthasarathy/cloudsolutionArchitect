@@ -75,7 +75,7 @@ function fetchBooks() {
    .catch(error => {
        // Display an error message in the UI
        const errorMessage = document.createElement('p');
-       errorMessage.textContent = 'Failed to fetch books. Please try again later.';
+       errorMessage.textContent = 'User is not Authorized to View this Page ,Failed to fetch books.';
        document.getElementById('bookContainer').appendChild(errorMessage);
        console.error('API request failed:', error);
    });

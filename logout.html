@@ -4,12 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fceabb; /* Light yellow background */
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure full viewport height */
+        }
+
+        h2 {
+            font-size: 72px; /* Enlarge the font size */
+            animation: rotateText 10s linear infinite alternate; /* Rotate animation */
+        }
+
+        /* Keyframes for rotating text */
+        @keyframes rotateText {
+            0% {
+                color: #ff6f61; /* Bright coral text color */
+                transform: rotate(0deg);
+            }
+            50% {
+                color: #28a745; /* Green text color */
+                transform: rotate(180deg);
+            }
+            100% {
+                color: #007bff; /* Blue text color */
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Confetti animation */
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotateZ(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotateZ(720deg);
+            }
+        }
+
+        .confetti {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            border-radius: 5px;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        /* Different colors for confetti particles */
+        .confetti:nth-child(1) {
+            background-color: #ff6f61; /* Bright coral */
+            left: 10%;
+        }
+
+        .confetti:nth-child(2) {
+            background-color: #ffcc5c; /* Bright yellow */
+            left: 20%;
+        }
+
+        .confetti:nth-child(3) {
+            background-color: #4caf50; /* Green */
+            left: 30%;
+        }
+
+        .confetti:nth-child(4) {
+            background-color: #2196f3; /* Blue */
+            left: 40%;
+        }
+
+        .confetti:nth-child(5) {
+            background-color: #9c27b0; /* Purple */
+            left: 50%;
+        }
+
+        .confetti:nth-child(6) {
+            background-color: #e91e63; /* Pink */
+            left: 60%;
+        }
+
+        .confetti:nth-child(7) {
+            background-color: #00bcd4; /* Cyan */
+            left: 70%;
+        }
+
+        .confetti:nth-child(8) {
+            background-color: #ffc107; /* Amber */
+            left: 80%;
+        }
+
+        .confetti:nth-child(9) {
+            background-color: #607d8b; /* Gray */
+            left: 90%;
+        }
+    </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2 style="font-size: 36px;">Thank you !</h2>
-    </div>
-   
+    <h2>Thank you !</h2>
+    <!-- Confetti particles -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
 </body>
 </html>

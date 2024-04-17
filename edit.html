@@ -4,33 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Book</title>
-    <link rel="stylesheet" href="styles.css">
+  
     <style>
       body {
-          background-color: #f0f0f0; /* Set background color */
+          background-color: #f8f9fa; /* Set background color */
           font-family: Arial, sans-serif; /* Use a common font */
+          margin: 0; /* Remove default margin */
+          padding: 0; /* Remove default padding */
       }
   
       .container {
-          text-align: center; /* Align content in the center horizontally */
-          margin-top: 50px; /* Add some top margin for space */
+          display: flex; /* Use flexbox */
+          justify-content: center; /* Center content horizontally */
+          align-items: center; /* Center content vertically */
+          height: 100vh; /* Set container height to viewport height */
+      }
+  
+      .form-container {
+          width: 400px; /* Set width of form container */
+          background-color: #fff; /* Set background color */
+          padding: 20px; /* Add padding */
+          border-radius: 8px; /* Add border radius */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+          text-align: center; /* Center text inside the form container */
+      }
+  
+      h1 {
+          margin-bottom: 20px; /* Add bottom margin to the title */
       }
   
       /* Style for labels */
       label {
-          display: inline-block; /* Display labels as inline-block elements */
+          display: inline-block; /* Display labels as inline-block */
           width: 120px; /* Adjust the width as needed */
           text-align: right; /* Align text to the right */
-          margin-bottom: 5px; /* Add some bottom margin to labels */
-          color: #333; /* Set label color */
+          margin-bottom: 10px; /* Add bottom margin to labels */
+          color: #495057; /* Set label color */
       }
   
       input[type="text"] {
-          width: 200px; /* Adjust the width as needed */
-          padding: 5px; /* Add some padding to inputs */
-          margin-bottom: 10px; /* Add some bottom margin to inputs */
-          border: 1px solid #ccc; /* Add a border */
-          border-radius: 3px; /* Add border radius */
+          width: 250px; /* Adjust the width as needed */
+          padding: 8px; /* Add padding to inputs */
+          margin-bottom: 15px; /* Add bottom margin to inputs */
+          border: 1px solid #ced4da; /* Add a border */
+          border-radius: 4px; /* Add border radius */
+          vertical-align: middle; /* Align input fields vertically */
       }
   
       .back-button {
@@ -42,11 +60,11 @@
   
       button[type="submit"] {
           width: 150px; /* Set button width */
-          padding: 8px 12px; /* Add padding to button */
+          padding: 10px; /* Add padding to button */
           background-color: #007bff; /* Set button background color */
           color: #fff; /* Set button text color */
           border: none; /* Remove border */
-          border-radius: 3px; /* Add border radius */
+          border-radius: 4px; /* Add border radius */
           cursor: pointer; /* Add cursor pointer */
       }
   
@@ -57,24 +75,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Edit Book</h1>
-        <form id="editForm">
-            <!-- Hidden input field for ID -->
-            <label for="id">ID:</label>
-            <input type="text" id="id" name="id" readonly><br>
-            <label for="Title">Title:</label>
-            <input type="text" id="Title" name="Title"><br>
-            <label for="Publisher">Publisher:</label>
-            <input type="text" id="Publisher" name="Publisher"><br>
-            <label for="Authors">Authors:</label>
-            <input type="text" id="Authors" name="Authors"><br>
-            <label for="Year">Year:</label>
-            <input type="text" id="Year" name="Year"><br>
-            <!-- Save Changes button -->
-            <button type="submit" id="saveChangesButton">Save Changes</button>
-        </form>
-        <!-- Back button -->
-        <a href="home.html" class="back-button">Back</a>
+        <div class="form-container">
+            <h1>Edit Book</h1>
+            <form id="editForm">
+                <!-- Hidden input field for ID -->
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" readonly><br>
+                <label for="Title">Title:</label>
+                <input type="text" id="Title" name="Title"><br>
+                <label for="Publisher">Publisher:</label>
+                <input type="text" id="Publisher" name="Publisher"><br>
+                <label for="Authors">Authors:</label>
+                <input type="text" id="Authors" name="Authors"><br>
+                <label for="Year">Year:</label>
+                <input type="text" id="Year" name="Year"><br>
+                <!-- Save Changes button -->
+                <button type="submit" id="saveChangesButton">Save Changes</button>
+            </form>
+            <!-- Back button -->
+            <a href="home.html" class="back-button">Back</a>
+        </div>
     </div>
     <br>
     <script>

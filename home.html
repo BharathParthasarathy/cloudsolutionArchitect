@@ -60,17 +60,36 @@
     <!-- Book Tiles Container -->
     <div id="bookContainer" class="book-container"></div> <!-- Added container for book tiles -->
   </div>
-  <script src="script.js"></script>
+  
   <script>
     // Function to handle signout
+    // Function to handle signout
     function signOut() {
-      sessionStorage.clear();
-      document.cookie = ""; // This will clear all cookies
-      window.location.href = "logout.html"; 
+      var poolData = {
+          UserPoolId : 'us-east-1_uXmvKnfmZ',
+          ClientId : '1dk94durjpssfiuvpge987377f'
+      };
+      // Check if AmazonCognitoIdentity is defined
+      if (typeof AmazonCognitoIdentity !== 'undefined') {
+            var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+            var cognitoUser = userPool.getCurrentUser();
 
+            if (cognitoUser !== null) {
+              sessionStorage.clear();
+              document.cookie = ""; // This will clear all cookies
+                cognitoUser.signOut();
+            }
+        } else {
+            console.log('AmazonCognitoIdentity is not defined');
+        }
+      window.location.href = "https://dbsbookstore.auth.us-east-1.amazoncognito.com/logout?client_id=1dk94durjpssfiuvpge987377f&logout_uri=https://bookstore.bharathparth.cloud/logout.html";
     }
   </script>
   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.977.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js"></script>
+  <script src="script.js"></script>
+  </script>
+  
 
 </body>
 </html>

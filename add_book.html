@@ -4,51 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add New Book</title>
-  <link rel="stylesheet" href="styles.css">
+  
   <style>
+    body {
+      background-color: #f8f9fa; /* Set background color */
+      font-family: Arial, sans-serif; /* Set font family */
+      margin: 0; /* Remove default margins */
+      padding: 0; /* Remove default padding */
+    }
+
     .container {
-      text-align: center; /* Align content in the center horizontally */
+      display: flex; /* Use flexbox */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      height: 100vh; /* Set container height to viewport height */
+    }
+
+    .form-container {
+      width: 400px; /* Set width of form container */
+      background-color: #e9ecef; /* Set background color */
+      padding: 20px; /* Add padding */
+      border-radius: 8px; /* Add border radius */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    }
+
+    h1 {
+      color: #343a40; /* Set heading color */
     }
 
     /* Style for labels */
     label {
-      display: inline-block; /* Make labels behave as blocks */
-      width: 100px; /* Adjust the width as needed */
-      text-align: right; /* Align text to the right */
-      margin-right: 10px; /* Add some margin to the right of labels */
+      display: block; /* Make labels behave as blocks */
+      margin-bottom: 5px; /* Add bottom margin to labels */
+      color: #495057; /* Set label color */
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: calc(100% - 24px); /* Set width of input fields */
+      padding: 8px; /* Add padding to input fields */
+      border: 1px solid #ced4da; /* Add border */
+      border-radius: 4px; /* Add border radius */
+    }
+
+    button[type="submit"] {
+      width: 100%; /* Set width to 100% */
+      padding: 10px; /* Add padding to the button */
+      background-color: #007bff; /* Set button background color */
+      color: #fff; /* Set button text color */
+      border: none; /* Remove button border */
+      border-radius: 4px; /* Add border radius */
+      cursor: pointer; /* Change cursor on hover */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3; /* Change background color on hover */
     }
 
     .back-button {
       display: inline-block; /* Make the button inline block */
       margin-top: 20px; /* Adjust top margin as needed */
+      color: #007bff; /* Set button text color */
+      text-decoration: none; /* Remove default underline */
+    }
+
+    .back-button:hover {
+      text-decoration: underline; /* Add underline on hover */
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Add New Book</h1>
-    <form id="addBookForm">
-      <label for="id">ID:</label>
-      <input type="number" id="id" required><br><br>
+    <div class="form-container">
+      <h1>Add New Book</h1>
+      <form id="addBookForm">
+        <label for="id">ID:</label>
+        <input type="number" id="id" required><br>
 
-      <label for="Authors">Authors:</label>
-      <input type="text" id="Authors" required><br><br>
+        <label for="Authors">Authors:</label>
+        <input type="text" id="Authors" required><br>
 
-      <label for="Publisher">Publisher:</label>
-      <input type="text" id="Publisher" required><br><br>
+        <label for="Publisher">Publisher:</label>
+        <input type="text" id="Publisher" required><br>
 
-      <label for="Title">Title:</label>
-      <input type="text" id="Title" required><br><br>
+        <label for="Title">Title:</label>
+        <input type="text" id="Title" required><br>
 
-      <label for="Year">Year:</label>
-      <input type="number" id="Year" required><br><br>
+        <label for="Year">Year:</label>
+        <input type="number" id="Year" required><br>
 
-      <!-- Additional fields can be added as needed -->
-      <button type="submit">Save</button>
-      <br><br> 
-    </form>
-    <a href="home.html" class="back-button">Back</a>
-    <br>
+        <!-- Additional fields can be added as needed -->
+        <button type="submit">Save</button>
+      </form>
+      <a href="home.html" class="back-button">Back</a>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
